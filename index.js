@@ -31,13 +31,13 @@ function typeNote(){
 const notes =JSON.parse(localStorage.getItem("noteText")) ||[];
 
 function createNote(id,text){
-  var text = document.getElementById("note-text").value;
+  var text = document.getElementById("note-text");
   var node0 = document.createElement("div");
   node0.setAttribute("id", id)
   node0.classList.add("thumb")
   var node1 = document.createElement("h1");
   
-  node1.innerHTML = text;
+  node1.innerHTML = text.value;
   node1.setAttribute("style",
   "box-shadow: 0px 10px 24px 0px rgb(0,0,0,0.75);  height:auto; min-height:250px;  width:250px; padding:25px;  margin-top:20px; overflow:hidden; font-size:20px; word-wrap:break-word;")
   node1.style.margin=margin();
@@ -72,10 +72,10 @@ function color(){
 } 
 
 function dox(){
-  var text = document.getElementById("note-text").value;
+  var text = document.getElementById("note-text");
   const obj={
     id: Math.floor(Math.random() * 100000),
-    noteText: text
+    noteText: text.value
   }
   notes.push(obj);
   createNote(obj.id,obj.text);
