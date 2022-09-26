@@ -1,0 +1,73 @@
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+    font-family:'poppins',sans-serif;
+}
+#main{
+    height: 60px;
+    background-color:rgb(223, 149, 120);
+    width: 100%;
+    padding: 20px;
+    font-size: larger;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.image{
+    width: 80px;
+    padding: 12px;
+}
+.main-container{
+    margin: auto;
+    width: 95%;
+}
+.container1{
+   margin-left: 5px;
+   margin-top: 20px;
+   cursor: pointer;
+}
+.container2{
+    display:flex;
+    justify-content:flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    margin-left: 5px;
+}
+.container3{
+    display: none;
+    position: absolute;
+    left: 400px;
+    bottom: 1px;
+    top: 270px;
+    margin-left: 50px;
+    margin-bottom: 1000px;   
+}
+textarea{
+    box-shadow: 10px 10px 45px 2px rgb(0,0,0,0.55);
+    outline:none;
+    border: none;
+    width:250px;
+    height: 250px;
+    padding: 12px;
+}
+#check-icon{
+    position: absolute;
+    right: 30px;
+    top: 5px;
+    cursor: pointer;
+}
+#x-icon{
+    position: absolute;
+    right: 10px;
+    top: 5px;
+    cursor: pointer;
+
+}
+#note-text{
+    bottom: 89px;
+    padding: auto;
+    padding-top: 30px;
+}
+
