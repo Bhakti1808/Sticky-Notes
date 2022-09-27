@@ -1,10 +1,9 @@
 var container2 = document.getElementsByClassName("container2")[0];
 var container3 = document.getElementsByClassName("container3")[0];
-
 var checkIcon = document.getElementById("check-icon");
 var xIcon = document.getElementById("x-icon");
 var i = 0;
-
+var text = document.getElementById("note-text");
 xIcon.addEventListener("click",function(){
   typeNote();
 })
@@ -30,14 +29,15 @@ function typeNote(){
 
 const notes =JSON.parse(localStorage.getItem("noteText")) ||[];
 
-function createNote(id,text){
+function createNote(id,txt){
   var text = document.getElementById("note-text");
+  // text.value = text;
   var node0 = document.createElement("div");
   node0.setAttribute("id", id)
   node0.classList.add("thumb")
   var node1 = document.createElement("h1");
-  
-  node1.innerHTML = text.value;
+
+  node1.innerHTML = txt;
   node1.setAttribute("style",
   "box-shadow: 0px 10px 24px 0px rgb(0,0,0,0.75);  height:auto; min-height:250px;  width:250px; padding:25px;  margin-top:20px; overflow:hidden; font-size:20px; word-wrap:break-word;")
   node1.style.margin=margin();
@@ -53,6 +53,13 @@ function createNote(id,text){
   node0.addEventListener("mouseenter",function(){
     node0.style.transform="scale(1)";
   })
+  var ho = document.querySelectorAll(".thumb");
+  for (let i = 0; i < ho.length; i++) {
+    ho[i].addEventListener("dblclick", function(){
+      dlt(ho[i].getAttribute("id"))
+      ho[i].remove()
+    })
+  }
  document.getElementById("note-text").value='';
 }
 function margin(){
@@ -78,20 +85,15 @@ function dox(){
     noteText: text.value
   }
   notes.push(obj);
-  createNote(obj.id,obj.text);
-    localStorage.setItem("noteText",JSON.stringify(notes));
-    var ho = document.querySelectorAll(".thumb");
-    for (let i = 0; i < ho.length; i++) {
-      ho[i].addEventListener("dblclick", function(){
-        dlt(ho[i].getAttribute("id"))
-        ho[i].remove()
-      })
-    }
-}
-stay();
+  createNote(obj.id,obj.noteText);
+  localStorage.setItem("noteText",JSON.stringify(notes));
 
+}
+
+stay();
+  
 function stay(){
-  notes.forEach(ro  => {
-    createNote(ro.id,ro.text)
-  })
+  notes.forEach(ro => {
+    createNote(ro.id,ro.noteText)
+  });
 }
