@@ -37,7 +37,7 @@ function createNote(id,txt){
   node0.classList.add("thumb")
   var node1 = document.createElement("h1");
 
-  node1.innerHTML = txt;
+  node1.innerHTML = tr(txt);
   node1.setAttribute("style",
   "box-shadow: 0px 10px 24px 0px rgb(0,0,0,0.75);  height:auto; min-height:250px;  width:250px; padding:25px;  margin-top:20px; overflow:hidden; font-size:20px; word-wrap:break-word;")
   node1.style.margin=margin();
@@ -96,4 +96,11 @@ function stay(){
   notes.forEach(ro => {
     createNote(ro.id,ro.noteText)
   });
+}
+function tr(html) {
+  // console.log("Changing HTMl")
+  return html
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;");
 }
