@@ -87,7 +87,7 @@ function dox(){
   notes.push(obj);
   createNote(obj.id,obj.noteText);
   localStorage.setItem("noteText",JSON.stringify(notes));
-
+  
 }
 
 stay();
