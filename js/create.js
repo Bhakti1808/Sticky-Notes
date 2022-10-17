@@ -7,17 +7,22 @@ var text = document.getElementById("note-text");
 var checkIcon = document.getElementById("check-icon");
 checkIcon.addEventListener("click",dox)
 
+
 export function createNote(id,txt){
 const notes =JSON.parse(localStorage.getItem("noteText")) ||[];
 localStorage.setItem("noteText",JSON.stringify(notes));
 
-
     var text = document.getElementById("note-text");
-    // text.value = text;
     var node0 = document.createElement("div");
     node0.setAttribute("id", id)
     node0.classList.add("thumb")
     var node1 = document.createElement("h1");
+
+    // checkIcon.addEventListener("click",function(){
+    //   if (txt==="") {
+    //     alert("hdegf");
+    //   }
+    // })
     
     node1.innerHTML = tr(txt);
     node1.setAttribute("style",
@@ -45,6 +50,7 @@ localStorage.setItem("noteText",JSON.stringify(notes));
 
    document.getElementById("note-text").value='';
   }
+    
 function tr(html) {
 // console.log("Changing HTMl")
     return html
